@@ -18,9 +18,9 @@ function App() {
             To-do app
           </div>
 
-          <div className='flex hover:text-black md:space-x-10 space-x-3 '>
-            <div>Signup</div>
-            <div>Login</div>
+          <div className='flex  md:space-x-10 space-x-3 '>
+            <div className='hover:text-black'>Signup</div>
+            <div className='hover:text-black'>Login</div>
           </div>
         </nav>
 
