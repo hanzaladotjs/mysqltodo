@@ -1,6 +1,8 @@
 import express, { NextFunction, Request, Response } from "express"
 import mainrouter from "./routes"
+import dotenv from "dotenv"
 
+dotenv.config()
 const app = express()
 app.use(express.json())
 
