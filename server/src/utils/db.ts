@@ -1,5 +1,5 @@
 import mysql from "mysql2/promise"
-
+import "./env"
 
 if(!process.env.DATABASE_URI){
     throw new Error("db uri not found")
