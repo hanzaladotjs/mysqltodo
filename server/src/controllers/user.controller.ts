@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import mydb from "../utils/db";
 import jwt from "jsonwebtoken"
-import bcrypt from "bcrypt"
+import bcrypt from "bcryptjs"
 import z from "zod"
 
 const UserScheme = z.object({
