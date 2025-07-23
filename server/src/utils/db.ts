@@ -1,9 +1,5 @@
 import mysql from "mysql2/promise"
-import dotenv from "dotenv"
-
-
-dotenv.config()
-
+import "./env"
 
 if(!process.env.DATABASE_URI){
     throw new Error("db uri not found")

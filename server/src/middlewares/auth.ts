@@ -1,9 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken"
-import dotenv from "dotenv"
 
 
-dotenv.config()
 
 
 const authMiddleware = (req:Request, res:Response, next: NextFunction) => {
@@ -23,8 +21,12 @@ const authMiddleware = (req:Request, res:Response, next: NextFunction) => {
         return 
     }
 
-    const jwtVerify = jwt.verify(token, process.env.JWT_SECRET)
+    const jwtVerify:any = jwt.verify(token, process.env.JWT_SECRET)
+    
 
+    req.userId = jwtVerify.id
     next()
 
 }
+
+export default authMiddleware
