@@ -1,14 +1,31 @@
 import { Request, Response } from "express";
 import mydb from "../utils/db";
 import jwt from "jsonwebtoken"
-import dotenv from "dotenv"
 import bcrypt from "bcrypt"
+import z from "zod"
+
+const UserScheme = z.object({
+    username: z.string().max(20),
+    email: z.email(),
+    password: z.string().min(6),
+})
 
 
 export const signup = async (req:Request, res:Response) => {
 
+    console.log(req.body)
+
     const {username, email, password} = req.body
 
+    const {success} = UserScheme.safeParse({username, email, password})
+    
+    if(!success){
+        return res.status(404).json({
+            msg: "error"
+        })
+    }
+
+    
   
     const [existingUser]:any= await mydb.query<any[]>(`SELECT * FROM users WHERE username=?`, [username])
 
@@ -46,7 +63,15 @@ export const signup = async (req:Request, res:Response) => {
 
 export const signin = async (req: Request, res: Response) => {
 
+    console.log(req.body)
+
     const {identity, password} = req.body
+
+    if(!identity || !password){
+        return res.status(500).json({
+            msg:"cehck inputs"
+        })
+    }
 
     if(!identity.includes("@")){
         const sql = `SELECT * FROM users WHERE username=?`
