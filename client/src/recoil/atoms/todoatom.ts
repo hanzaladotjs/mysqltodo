@@ -1,7 +1,7 @@
 import { atom } from "recoil";
 
 const todoatom = atom({
-    key: "userdata",
+    key: "tododata",
     default: []
 })
 

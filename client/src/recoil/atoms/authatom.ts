@@ -2,7 +2,6 @@ import { atom } from "recoil";
 
 const auth = atom({
     key: "auth",
-    default: true
-})
+    default: false})
 
 export default auth
