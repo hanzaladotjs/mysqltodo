@@ -14,13 +14,13 @@ function App() {
     <div>
       <Router>
         <nav className='md:px-15 px-3 mb-20 border-b border-gray-200  h-16 flex justify-between md:justify-around items-center font-mono font-extrabold   text-md md:text-xl'>
-         <Link to={"/"}> <div className='text-gray-600'>
+         <Link to={"/"}> <div className='text-gray-600 hover:underline'>
             To-do app
           </div></Link>
 
           <div className='flex  md:space-x-10 space-x-3 '>
-            <Link to={"/signup"}><div className='text-gray-600 '>Signup</div></Link>
-            <Link to={"/login"}><div className='text-gray-600 '>Login</div></Link>
+            <Link to={"/signup"}><div className='text-gray-600 hover:underline'>Signup</div></Link>
+            <Link to={"/login"}><div className='text-gray-600  hover:underline'>Login</div></Link>
           </div>
         </nav>
 
