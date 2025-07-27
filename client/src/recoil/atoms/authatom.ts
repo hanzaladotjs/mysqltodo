@@ -1,7 +1,7 @@
 import { atom } from "recoil";
 
-const auth = atom({
+const authAtom = atom({
     key: "auth",
     default: false})
 
-export default auth
+export default authAtom
