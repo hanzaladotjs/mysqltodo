@@ -58,7 +58,7 @@ export const Update = async (req: Request, res: Response) => {
         })
     }
 const userId = req.userId
-    const todoToUpdate = await mydb.query(`UPDATE todos SET name=?,detail=?,checkbox=?,userId=?) WHERE id=?`, [name, detail, checkbox, userId, id])
+    const todoToUpdate = await mydb.query(`UPDATE todos SET name=?,detail=?,checkbox=?,userId=? WHERE id=?`, [name, detail, checkbox, userId, id])
 
       res.status(200).json({
         msg: "todo updated "

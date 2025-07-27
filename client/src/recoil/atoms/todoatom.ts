@@ -1,6 +1,10 @@
 import { atom } from "recoil";
 
-const todoatom = atom({
+
+
+
+
+const todoatom = atom<any>({
     key: "tododata",
     default: []
 })
