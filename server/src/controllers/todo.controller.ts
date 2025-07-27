@@ -6,7 +6,7 @@ import { any, safeParse, z } from "zod"
 const todoScheme = z.object({
     name: z.string().max(20),
     detail: z.string(),
-    checkbox: z.boolean(),
+    checkbox: z.any(),
 
 })
 
