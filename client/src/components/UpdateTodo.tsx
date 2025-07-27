@@ -9,7 +9,7 @@ const Update = () => {
     const id = useRecoilValue(editatom)
     const todus = useRecoilValue(todoatom)
     const thisOne =  todus.find((todo:any)=> todo.id==id)
-    const token:any = localStorage.getItem("token")
+    const token:string | null = localStorage.getItem("token")
 
      const [updated, setUpdated] = useState<any>({
     name: "",
@@ -41,7 +41,7 @@ const navigate = useNavigate()
             body: JSON.stringify( {
                 name: updated.name,
                 detail: updated.detail,
-                checkbox: updated.checkbox
+                checkbox: updated.checkbox ? 1 : 0
             })
         })
         navigate("/")
@@ -58,7 +58,7 @@ const navigate = useNavigate()
             
             <textarea onChange={(e)=> setUpdated((prev:any)=> ({...prev, detail: e.target.value}))} value={updated.detail} className="w-full h-60 mt-5 px-5 outline-none overflow-auto  placeholder-gray-400" placeholder="Description"/>
                 <div className="flex items-center my-5">
-            <input  type="checkbox" checked={updated.checkbox} onChange={(e) => setUpdated((prev:any) => ({...prev, checkbox: e.target.checked}))} className="mr-5 size-10"/>
+            <input  type="checkbox" checked={Boolean(updated.checkbox)} onChange={(e) => setUpdated((prev:any) => ({...prev, checkbox: e.target.checked}))} className="mr-5 size-10"/>
             <div className="flex space-x-5">
             <button onClick={() => updateTodo(id)} className="w-20 h-10 border-2 border-gray-600"> Done </button>
 

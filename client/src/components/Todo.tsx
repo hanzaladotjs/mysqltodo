@@ -4,6 +4,7 @@ import CreateView from "./Create"
 import TodoViewElement from "./TodoElement"
 import modalview from "../recoil/atoms/modalView"
 import todoview from "../recoil/atoms/todoView"
+import { useEffect } from "react"
 
 const Todo = () => {
 
@@ -14,9 +15,10 @@ const Todo = () => {
 
      const token = localStorage.getItem("token")
 
+     useEffect(() => {
     if(token){
         setAuthState(true)
-    }
+    }}, [])
 
 
     function goToTodoView(){
