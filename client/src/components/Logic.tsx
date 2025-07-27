@@ -31,6 +31,8 @@ const Login = () => {
         navigate("/")
     }
 
+    console.log(BACKEND_URI)
+
 
     return (
         <div>
