@@ -15,6 +15,7 @@ const TodoViewElement = () => {
 
     const token = localStorage.getItem("token")
 
+    
     async function renderTodos() {
         const response = await fetch(`${BACKEND_URI}/todos/todos`, {
             method: "GET",
@@ -26,9 +27,19 @@ const TodoViewElement = () => {
         const data = await response.json()
         setTodus(data.todos)
     }
+    
+useEffect(() => {
+  
+  renderTodos();
 
 
-    useEffect(() => {renderTodos()}, [])
+  const interval = setInterval(() => {
+    renderTodos();
+  }, 10000);
+
+    return () => clearInterval(interval);
+}, []);
+
 
 
     async function DeleteTodo(id: any) {
